@@ -138,7 +138,17 @@ class PluginHipchatstatusupdater extends ServicePlugin
                 $this->teamStatusGateway->saveTeamStatus(new User($userid), substr($message['message'],8), 0);
             }
         } else {
-            $this->log(1, "Could not match user with hipchat status message of: ".$message['message']);
+            // they aren't in the hipchat users, so try to look up from their nick name
+            $nickname = $message['from']['name'];
+            $userid = $this->userGateway->getUserIdFromNickName($nickname);
+
+            if ( $userid == 0 ) {
+                $this->log(1, "Could not match user with hipchat status message of: ".$message['message']);
+            } else {
+                if (substr(strtolower($message['message']),0,7)=="@status") {
+                    $this->teamStatusGateway->saveTeamStatus(new User($userid), substr($message['message'],8), 0);
+                }
+            }
         }
     }
 
