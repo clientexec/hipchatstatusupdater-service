@@ -126,6 +126,11 @@ class PluginHipchatstatusupdater extends ServicePlugin
 
     private function parseMessage($message,$hipchatusers,&$users)
     {
+        // Something is sending a random \n to the end of some hipchat messages, so delete it.
+        if ( substr($message['message'], -2) == '\n' ) {
+                $message['message'] = substr($message['message'], 0, strlen($message['message'])-2);
+        }
+
         if (key_exists($message['from']['user_id'], $hipchatusers)) {
             //add users to array so we don't have to look up for each message
             if (!key_exists($hipchatusers[$message['from']['user_id']],$users)) {
