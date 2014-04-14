@@ -105,7 +105,6 @@ class PluginHipchatstatusupdater extends ServicePlugin
             } else {
                 $checkagainstDate = date('Y-m-d', mktime(0, 0, 0, date("m") , date("d") - 1, date("Y")));
             }
-            CE_Lib::log(4, 'checkagainstDate is: ' . $checkagainstDate);
 
             if ( is_array($json_output) ) {
                 if ( array_key_exists('messages', $json_output) ) {
@@ -141,7 +140,6 @@ class PluginHipchatstatusupdater extends ServicePlugin
                 $userid = $users[$hipchatusers[$message['from']['user_id']]];
             }
             if (substr(strtolower($message['message']),0,7)=="@status") {
-                CE_Lib::log(4, 'Adding new status message of: ' . $message['message']);
                 $this->teamStatusGateway->saveTeamStatus(new User($userid), substr($message['message'],8), 0);
             }
         } else {
@@ -153,7 +151,6 @@ class PluginHipchatstatusupdater extends ServicePlugin
                 $this->log(1, "Could not match user with hipchat status message of: ".$message['message']);
             } else {
                 if (substr(strtolower($message['message']),0,7)=="@status") {
-                    CE_Lib::log(4, 'Adding new status message of: ' . $message['message']);
                     $this->teamStatusGateway->saveTeamStatus(new User($userid), substr($message['message'],8), 0);
                 }
             }
