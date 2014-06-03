@@ -18,50 +18,50 @@ class PluginHipchatstatusupdater extends ServicePlugin
     function getVariables()
     {
         $variables = array(
-            /*T*/'Plugin Name'/*/T*/   => array(
+            lang('Plugin Name')   => array(
                 'type'          => 'hidden',
-                'description'   => /*T*/''/*/T*/,
-                'value'         => /*T*/'HipChat Status Updater'/*/T*/,
+                'description'   => '',
+                'value'         => lang('HipChat Status Updater'),
             ),
-            /*T*/'Enabled'/*/T*/       => array(
+            lang('Enabled')       => array(
                 'type'          => 'yesno',
-                'description'   => /*T*/'When enabled, @status messages from the hipchat room will be converted to status messages in ClientExec.'/*/T*/,
+                'description'   => lang('When enabled, @status messages from the hipchat room will be converted to status messages in ClientExec.'),
                 'value'         => '0',
             ),
-            /*T*/'HipChat Token'/*/T*/  => array(
+            lang('HipChat Token')  => array(
                 'type'          => 'text',
-                'description'   => /*T*/'Required. REST API Token'/*/T*/,
+                'description'   => lang('Required. REST API Token'),
                 'value'         => ''
             ),
-            /*T*/'HipChat Roomid'/*/T*/  => array(
+            lang('HipChat Roomid')  => array(
                 'type'          => 'text',
-                'description'   => /*T*/'Required. ID of the room. '/*/T*/,
+                'description'   => lang('Required. ID of the room. '),
                 'value'         => ''
             ),
-            /*T*/'Run schedule - Minute'/*/T*/  => array(
+            lang('Run schedule - Minute')  => array(
                 'type'          => 'text',
-                'description'   => /*T*/'Enter number, range, list or steps'/*/T*/,
+                'description'   => lang('Enter number, range, list or steps'),
                 'value'         => '5',
                 'helpid'        => '8',
             ),
-            /*T*/'Run schedule - Hour'/*/T*/  => array(
+            lang('Run schedule - Hour')  => array(
                 'type'          => 'text',
-                'description'   => /*T*/'Enter number, range, list or steps'/*/T*/,
+                'description'   => lang('Enter number, range, list or steps'),
                 'value'         => '*',
             ),
-            /*T*/'Run schedule - Day'/*/T*/  => array(
+            lang('Run schedule - Day')  => array(
                 'type'          => 'text',
-                'description'   => /*T*/'Enter number, range, list or steps'/*/T*/,
+                'description'   => lang('Enter number, range, list or steps'),
                 'value'         => '*',
             ),
-            /*T*/'Run schedule - Month'/*/T*/  => array(
+            lang('Run schedule - Month')  => array(
                 'type'          => 'text',
-                'description'   => /*T*/'Enter number, range, list or steps'/*/T*/,
+                'description'   => lang('Enter number, range, list or steps'),
                 'value'         => '*',
             ),
-            /*T*/'Run schedule - Day of the week'/*/T*/  => array(
+            lang('Run schedule - Day of the week')  => array(
                 'type'          => 'text',
-                'description'   => /*T*/'Enter number in range 0-6 (0 is Sunday) or a 3 letter shortcut (e.g. sun)'/*/T*/,
+                'description'   => lang('Enter number in range 0-6 (0 is Sunday) or a 3 letter shortcut (e.g. sun)'),
                 'value'         => '*',
             ),
         );
